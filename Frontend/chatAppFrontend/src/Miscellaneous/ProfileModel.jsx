@@ -11,8 +11,10 @@ import {
   ModalCloseButton,
 } from "@chakra-ui/react";
 import { Text, Button, Image } from "@chakra-ui/react";
+
 const ProfileModel = ({ user, children }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <div>
       {children ? (
@@ -21,8 +23,8 @@ const ProfileModel = ({ user, children }) => {
         <IconButton
           display={{ base: "flex" }}
           icon={<ViewIcon />}
-          onClick={isOpen}
-        ></IconButton>
+          onClick={onOpen} // Changed from onClick={isOpen} to onClick={onOpen}
+        />
       )}
       <Modal size="lg" isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />

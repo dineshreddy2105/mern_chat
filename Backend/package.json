@@ -17,6 +17,7 @@
     "express-async-handler": "^1.2.0",
     "flatted": "^3.3.1",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.5.0"
+    "mongoose": "^8.5.0",
+    "react-scrollable-feed": "^2.0.2"
   }
 }

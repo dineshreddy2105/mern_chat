@@ -7,13 +7,13 @@ import { AddIcon } from "@chakra-ui/icons";
 import ChatLoading from "../Components/ChatLoading";
 import { getSender } from "../config/ChatLogics";
 import GroupChatModal from "./GroupChatModal";
-const MyChats = () => {
+const MyChats = ({ fetchAgain }) => {
   const [loggedUser, setLoggedUser] = useState();
-  //console.log(loggedUser);
+
   const { selectedChat, setSelectedChat, user, chats, setChats } = ChatState();
 
   const toast = useToast();
-  // console.log(chats);
+
   const fetchChats = async () => {
     // console.log(user._id);
     try {
@@ -27,7 +27,7 @@ const MyChats = () => {
         "http://localhost:5000/api/chat",
         config
       );
-      //console.log("hello", data);
+      console.log("hello", data);
       setChats(data);
     } catch (error) {
       toast({
@@ -45,7 +45,7 @@ const MyChats = () => {
     setLoggedUser(JSON.parse(localStorage.getItem("userinfo")));
     fetchChats();
     // eslint-disable-next-line
-  }, []);
+  }, [fetchAgain]);
   return (
     <Box
       display={{ base: selectedChat ? "none" : "flex", md: "flex" }}
